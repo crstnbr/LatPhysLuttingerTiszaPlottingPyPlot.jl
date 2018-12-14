@@ -89,6 +89,10 @@ pkgcl_LatPhysPlottingPyPlot:
     - git clone http://gitlab+deploy-token-7:LMSBCxpqxfz8LPWxxGxH@gitsrv.thp.uni-koeln.de/attig/LatPhysPlottingPyPlot.jl.git ~/.julia/dev/LatPhysPlottingPyPlot.jl
   stage: pkg_clone
 
+pkgcl_LatPhysReciprocalPlottingPyPlot:
+  script:
+    - git clone http://gitlab+deploy-token-9:kBqw66_-r4HF1duZ4Mzk@gitsrv.thp.uni-koeln.de/attig/LatPhysReciprocalPlottingPyPlot.jl.git ~/.julia/dev/LatPhysReciprocalPlottingPyPlot.jl
+  stage: pkg_clone
 
 #---------------------------------------
 #    STAGE: julia_pkg_setup
@@ -106,6 +110,7 @@ pkg_env_adding:
     - julia -e "using Pkg; pkg\"dev ~/.julia/dev/LatPhysReciprocal.jl\";"
     - julia -e "using Pkg; pkg\"dev ~/.julia/dev/LatPhysLuttingerTisza.jl\";"
     - julia -e "using Pkg; pkg\"dev ~/.julia/dev/LatPhysPlottingPyPlot.jl\";"
+    - julia -e "using Pkg; pkg\"dev ~/.julia/dev/LatPhysReciprocalPlottingPyPlot.jl\";"
     - julia -e "using Pkg; pkg\"dev ../LatPhysLuttingerTiszaPlottingPyPlot.jl\";"
     - julia -e "using Pkg; pkg\"resolve\""
     - julia -e "using Pkg; pkg\"precompile\""
@@ -114,6 +119,7 @@ pkg_env_adding:
     - julia -e "using Pkg; pkg\"build LatPhysReciprocal\""
     - julia -e "using Pkg; pkg\"build LatPhysLuttingerTisza\""
     - julia -e "using Pkg; pkg\"build LatPhysPlottingPyPlot\""
+    - julia -e "using Pkg; pkg\"build LatPhysReciprocalPlottingPyPlot\""
     - julia -e "using Pkg; pkg\"build LatPhysLuttingerTiszaPlottingPyPlot\""
     - julia -e "using Pkg; pkg\"st\""
   stage: pkg_setup
@@ -158,6 +164,7 @@ pkg_env_removing:
     - julia -e "using Pkg; pkg\"rm LatPhysReciprocal\";"
     - julia -e "using Pkg; pkg\"rm LatPhysLuttingerTisza\";"
     - julia -e "using Pkg; pkg\"rm LatPhysPlottingPyPlot\";"
+    - julia -e "using Pkg; pkg\"rm LatPhysReciprocalPlottingPyPlot\";"
     - julia -e "using Pkg; pkg\"rm LatPhysLuttingerTiszaPlottingPyPlot\";"
     - julia -e "using Pkg; pkg\"gc\""
   stage: cleanup_julia

@@ -32,8 +32,8 @@ using LatPhysLuttingerTisza
 using PyPlot
 using LinearAlgebra
 
-# reexport pyplot plotting
-@reexport using LatPhysPlottingPyPlot
+# reexport reciprocal pyplot plotting
+@reexport using LatPhysReciprocalPlottingPyPlot
 
 
 # end of module
