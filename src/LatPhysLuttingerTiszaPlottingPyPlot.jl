@@ -36,5 +36,8 @@ using LinearAlgebra
 @reexport using LatPhysReciprocalPlottingPyPlot
 
 
+# import plotting
+include("LT_groundstate_plotting.jl")
+
 # end of module
 end
